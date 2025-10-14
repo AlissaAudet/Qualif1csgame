@@ -35,9 +35,14 @@ for content_type in resultat.csv
         total=$(echo $total+$i | bc )
         ((count++))
     done
-    echo "scale=2; $total / $count" | bc
+    echo "average_viewing_time_duration; $total / $count" "," content_type
+END
 
 while read line
 do
    echo "Record is : $line"
 done < resultat.csv
+
+#Transformation des données (formatage de la date):
+
+#regex pour identifier les différentes partie ??
