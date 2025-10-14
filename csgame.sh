@@ -22,3 +22,22 @@ done < resultat.csv
 
 #Rédigez un script pour déterminer la durée moyenne de visionnement pour chaque type d'abonnement. 
 #Affichez un tableau montrant subscription_type (type d'abonnement) et average_viewing_duration (durée moyenne de visionnement).
+
+new csv file resulat.csv
+awk -F, '{sum[$1]+=$2} END {for (id in sum) print id "," sum[id]}' content_type > resulat.csv
+#ajouter cutomer id colonne 1
+
+for content_type in resultat.csv
+
+    for i in $( awk '{ print $4; }' viewing_data.txt )
+    if content_type == content_type 
+    do 
+        total=$(echo $total+$i | bc )
+        ((count++))
+    done
+    echo "scale=2; $total / $count" | bc
+
+while read line
+do
+   echo "Record is : $line"
+done < resultat.csv
